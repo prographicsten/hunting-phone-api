@@ -1,5 +1,5 @@
-const loadPhone = async () => {
-    const response  = await fetch('https://openapi.programming-hero.com/api/phones?search=iphone');
+const loadPhone = async (searchText) => {
+    const response  = await fetch(`https://openapi.programming-hero.com/api/phones?search=${searchText}`);
     const data = await response.json();
     const phones = data.data;
     displayPhones(phones);
@@ -8,11 +8,15 @@ const loadPhone = async () => {
 const displayPhones = phones => {
     // step 1: find container Id
     const phoneContainer = document.getElementById('phone_container');
+    // clear phone container cards before adding new cards
+    phoneContainer.textContent = '';
+
+
     phones.forEach(phone => {
-        console.log(phone);
+        // console.log(phone);
         // step 2: create a div
         const phoneCard = document.createElement('div');
-        phoneCard.classList = `card bg-gray-100 shadow-xl mb-8 md:mb-3 py-5`;
+        phoneCard.classList = `card bg-gray-100 shadow-xl py-5`;
         // step 3: create in div innerHTML
         phoneCard.innerHTML = `
         <figure><img src="${phone.image}" alt="${phone.brand}" /></figure>
@@ -29,47 +33,27 @@ const displayPhones = phones => {
     });
 };
 
-loadPhone();
+
+const handleSearch = () => {
+    // console.log('handle search button clicked');
+    const searchField = document.getElementById('search_field');
+    const searchFieldValue = searchField.value;
+    console.log(searchFieldValue);
+    searchField.value = '';
+    loadPhone(searchFieldValue);
+}
 
 
-// const loadPhone = async () => {
-//     const res = await fetch('https://openapi.programming-hero.com/api/phones?search=iphone');
-//     const data = await res.json();
-//     const phones = data.data;
-//     // console.log(phones);
-//     displayPhones(phones);
-// }
-
-// const displayPhones = phones => {
-//     // console.log(phones);
-    
-//     // step 1: find container id
-//     const phoneContainer = document.getElementById('phone_container');
-
-//     phones.forEach(phone => {
-//         // console.log(phone)
-//         // step 2: create a new div
-//         const phoneCard = document.createElement('div');
-//         phoneCard.classList = `card bg-gray-100 shadow-xl`;
-
-//         // step 3: create innerText or innerHTML
-//         phoneCard.innerHTML = `
-//             <div class="card bg-gray-100 shadow-xl">
-//                 <figure><img src="${phone.image}" alt="Shoes" /></figure>
-//                 <div class="card-body text-center">
-//                     <h2 class="card-title mx-auto">${phone.brand}</h2>
-//                     <p>${phone.slug}</p>
-//                     <div class="card-actions justify-end mx-auto mt-4">
-//                         <button class="btn btn-primary btn-sm">Buy Now</button>
-//                     </div>
-//                 </div>
-//             </div>
-//         `;
-        
-//         // step 4: appendChild
-//         phoneContainer.appendChild(phoneCard);
-//     });
-// };
+const anotherSearchBtn = () => {
+    // console.log('Another Search button clicked');
+    const searchField2 = document.getElementById('search_field2');
+    const searchFieldValue2 = searchField2.value;
+    console.log('Getting another search field value', searchFieldValue2);
+    searchField2.value = '';
+    loadPhone(searchFieldValue2);
+}
 
 
 // loadPhone();
+
+

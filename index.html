@@ -19,10 +19,16 @@
     <!-- main area start -->
     <main class="container mx-auto lg:px-5 xl:px-32 2xl:px-32">
         <!-- search input and btn -->
-        <section class="bg-gray-100 p-4 rounded-md">
+        <section class="bg-gray-100 p-4 rounded-md flex justify-between">
             <span class="flex items-center">
-                <input type="text" placeholder="Search..." class="input input-bordered w-full max-w-xs" />
-                <button class="btn btn-primary">Search</button>
+                <input id="search_field" type="text" placeholder="Search..." class="input input-bordered w-full max-w-xs" />
+                <button onclick="handleSearch()" id="search_btn" class="btn btn-primary">Search</button>
+            </span>
+            
+            <!-- another search -->
+            <span class="flex items-center">
+                <input id="search_field2" type="text" placeholder="Type here" class="input w-full max-w-xs" />
+                <button onclick="anotherSearchBtn()" class="btn btn-active btn-secondary">Secondary</button>
             </span>
         </section>
         <!-- card area start -->
