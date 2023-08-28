@@ -11,11 +11,20 @@ const displayPhones = phones => {
     // clear phone container cards before adding new cards
     phoneContainer.textContent = '';
 
+    // display show all button if there are more than 12 phones
+    const showMoreContainers = document.getElementById('show_more_container');
+    if(phones.length > 12) {
+        showMoreContainers.classList.remove('hidden');
+    }
+    else {
+        showMoreContainers.classList.add('hidden', 'true');
+    }
+
     // can you see search results length
     console.log(phones.length);
 
     // you want show how phone results in 1 page
-    phones = phones.slice(0, 9);
+    phones = phones.slice(0, 12);
 
 
     phones.forEach(phone => {
