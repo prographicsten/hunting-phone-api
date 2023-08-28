@@ -2,10 +2,10 @@ const loadPhone = async (searchText , isShowMore) => {
     const response  = await fetch(`https://openapi.programming-hero.com/api/phones?search=${searchText}`);
     const data = await response.json();
     const phones = data.data;
-    displayPhones(phones);
+    displayPhones(phones, isShowMore);
 };
 
-const displayPhones = phones => {
+const displayPhones = (phones, isShowMore) => {
     // step 1: find container Id
     const phoneContainer = document.getElementById('phone_container');
     // clear phone container cards before adding new cards
@@ -13,18 +13,21 @@ const displayPhones = phones => {
 
     // display show all button if there are more than 12 phones
     const showMoreContainers = document.getElementById('show_more_container');
-    if(phones.length > 12) {
+    if(phones.length > 12 && !isShowMore) {
         showMoreContainers.classList.remove('hidden');
     }
     else {
         showMoreContainers.classList.add('hidden', 'true');
     }
 
+    console.log('is show more', isShowMore);
     // can you see search results length
     // console.log(phones.length);
 
-    // you want show how phone results in 1 page
-    phones = phones.slice(0, 12);
+    // you want show how phone results in 1 page. if not show more
+    if(!isShowMore) {
+        phones = phones.slice(0, 12);
+    }
 
 
     phones.forEach(phone => {
