@@ -11,6 +11,12 @@ const displayPhones = phones => {
     // clear phone container cards before adding new cards
     phoneContainer.textContent = '';
 
+    // can you see search results length
+    console.log(phones.length);
+
+    // you want show how phone results in 1 page
+    phones = phones.slice(0, 9);
+
 
     phones.forEach(phone => {
         // console.log(phone);
@@ -48,7 +54,6 @@ const anotherSearchBtn = () => {
     // console.log('Another Search button clicked');
     const searchField2 = document.getElementById('search_field2');
     const searchFieldValue2 = searchField2.value;
-    console.log('Getting another search field value', searchFieldValue2);
     searchField2.value = '';
     loadPhone(searchFieldValue2);
 }
