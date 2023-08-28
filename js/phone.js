@@ -31,7 +31,7 @@ const displayPhones = phones => {
         // console.log(phone);
         // step 2: create a div
         const phoneCard = document.createElement('div');
-        phoneCard.classList = `card bg-gray-100 shadow-xl py-5`;
+        phoneCard.classList = `card bg-gray-100 shadow-xl py-5 mb-5`;
         // step 3: create in div innerHTML
         phoneCard.innerHTML = `
         <figure><img src="${phone.image}" alt="${phone.brand}" /></figure>
