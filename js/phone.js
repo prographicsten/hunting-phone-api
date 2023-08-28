@@ -1,4 +1,4 @@
-const loadPhone = async (searchText) => {
+const loadPhone = async (searchText , isShowMore) => {
     const response  = await fetch(`https://openapi.programming-hero.com/api/phones?search=${searchText}`);
     const data = await response.json();
     const phones = data.data;
@@ -21,7 +21,7 @@ const displayPhones = phones => {
     }
 
     // can you see search results length
-    console.log(phones.length);
+    // console.log(phones.length);
 
     // you want show how phone results in 1 page
     phones = phones.slice(0, 12);
@@ -51,14 +51,13 @@ const displayPhones = phones => {
 };
 
 
-const handleSearch = () => {
+const handleSearch = (isShowMore) => {
     // console.log('handle search button clicked');
     toggleLoadingSpinner(true);
     const searchField = document.getElementById('search_field');
     const searchFieldValue = searchField.value;
-    console.log(searchFieldValue);
-    searchField.value = '';
-    loadPhone(searchFieldValue);
+    // searchField.value = '';
+    loadPhone(searchFieldValue, isShowMore);
 }
 
 
@@ -67,7 +66,7 @@ const anotherSearchBtn = () => {
     toggleLoadingSpinner(true);
     const searchField2 = document.getElementById('search_field2');
     const searchFieldValue2 = searchField2.value;
-    searchField2.value = '';
+    // searchField2.value = '';
     loadPhone(searchFieldValue2);
 }
 
@@ -80,6 +79,11 @@ const toggleLoadingSpinner = (isLoading) => {
     else{
         loadingSpinner.classList.add('hidden');
     }
+};
+
+
+const handleShowMore = () => {
+    handleSearch(true);
 };
 
 
