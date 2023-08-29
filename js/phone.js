@@ -2,6 +2,7 @@ const loadPhone = async (searchText = 'iPhone' , isShowMore) => {
     const response  = await fetch(`https://openapi.programming-hero.com/api/phones?search=${searchText}`);
     const data = await response.json();
     const phones = data.data;
+    // console.log(phones);
     displayPhones(phones, isShowMore);
 };
 
@@ -42,8 +43,7 @@ const displayPhones = (phones, isShowMore) => {
             <h2 class="card-title mx-auto">${phone.phone_name}</h2>
             <p>If a dog chews shoes whose shoes does he choose?</p>
             <div class="card-actions justify-end mx-auto mt-4">
-                <button onclick="handleShowDetails('${phone.slug}');
-                show_details_modal.showModal()" class="btn btn-primary btn-sm">Show Details</button>
+                <button class="btn btn-primary btn-sm">Show Details</button>
             </div>
         </div>
         `;
@@ -55,14 +55,10 @@ const displayPhones = (phones, isShowMore) => {
 };
 
 
-//
-const handleShowDetails = async (id) => {
-    console.log('show details button called', id);
-    // single phone data
-    const res = await fetch('https://openapi.programming-hero.com/api/phone/${id}')
-    const data = await res.json();
-    console.log(data);
-};
+// =================================================================
+
+
+// =================================================================
 
 
 const handleSearch = (isShowMore) => {
