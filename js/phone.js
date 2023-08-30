@@ -69,7 +69,7 @@ const handleShowDetail = async (id) => {
 };
 
 const showPhoneDetails = async (phone) => {
-    console.log(phone);
+    // console.log(phone);
     // find modal container id
     const modalContainer = document.getElementById('modal_container');
     // set up all HTML elements in modal container
