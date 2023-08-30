@@ -43,7 +43,7 @@ const displayPhones = (phones, isShowMore) => {
             <h2 class="card-title mx-auto">${phone.phone_name}</h2>
             <p>If a dog chews shoes whose shoes does he choose?</p>
             <div class="card-actions justify-end mx-auto mt-4">
-                <button class="btn btn-primary btn-sm">Show Details</button>
+                <button onclick="handleShowDetail('${phone.slug}')" class="btn btn-primary btn-sm">Show Details</button>
             </div>
         </div>
         `;
@@ -56,7 +56,42 @@ const displayPhones = (phones, isShowMore) => {
 
 
 // =================================================================
+const handleShowDetail = async (id) => {
+    // console.log("Show Details is called", id);
+    // load single phone data
+    const res = await fetch(`https://openapi.programming-hero.com/api/phone/${id}`);
+    // console.log(res);
+    const data = await res.json();
+    // console.log(data);
+    const phone = data.data;
+    // console.log(phone);
+    showPhoneDetails(phone);
+};
 
+const showPhoneDetails = async (phone) => {
+    console.log(phone);
+    // find modal container id
+    const modalContainer = document.getElementById('modal_container');
+    // set up all HTML elements in modal container
+    modalContainer.innerHTML = `
+    <div class="bg-[#0D6EFD0D] rounded-lg mb-5">
+        <img class="mx-auto py-6" src="${phone?.image}" alt="">
+    </div>
+    <h3 id="phone_name" id="show_details_phone_name" class="font-bold text-lg mb-4">${phone.name}</h3>
+    <p class="text-xs lg:text-sm font-semibold text-[#403F3F] mb-4"> Storage : <span class="font-normal text-[#706F6F]">${phone?.mainFeatures?.storage}</span></p>
+    <p class="text-xs lg:text-sm font-semibold text-[#403F3F] mb-4"> Display Size : <span class="font-normal text-[#706F6F]">${phone?.mainFeatures?.displaySize}</span></p>
+    <p class="text-xs lg:text-sm font-semibold text-[#403F3F] mb-4"> Chipset : <span class="font-normal text-[#706F6F]">${phone?.mainFeatures?.chipSet}</span></p>
+    <p class="text-xs lg:text-sm font-semibold text-[#403F3F] mb-4"> Memory : <span class="font-normal text-[#706F6F]">${phone?.mainFeatures?.memory}</span></p>
+    <p class="text-xs lg:text-sm font-semibold text-[#403F3F] mb-4"> Slug : <span class="font-normal text-[#706F6F]">${phone?.slug}</span></p>
+    <p class="text-xs lg:text-sm font-semibold text-[#403F3F] mb-4"> Release data : <span class="font-normal text-[#706F6F]">${phone?.releaseDate}</span></p>
+    <p class="text-xs lg:text-sm font-semibold text-[#403F3F] mb-4"> Brand : <span class="font-normal text-[#706F6F]">${phone?.brand}</span></p>
+    <p class="text-xs lg:text-sm font-semibold text-[#403F3F] mb-4"> GPS : <span class="font-normal text-[#706F6F]">${phone?.others?.GPS}</span></p>
+    `;
+
+
+    // show the modal
+    show_details_modal.showModal();
+}
 
 // =================================================================
 
