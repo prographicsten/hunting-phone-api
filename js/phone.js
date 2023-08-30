@@ -78,14 +78,14 @@ const showPhoneDetails = async (phone) => {
         <img class="mx-auto py-3" src="${phone?.image}" alt="">
     </div>
     <h3 id="phone_name" id="show_details_phone_name" class="font-bold text-lg mb-2">${phone.name}</h3>
-    <p class="text-xs lg:text-xs font-semibold text-[#403F3F] mb-2"> Storage : <span class="font-normal text-[#706F6F]">${phone?.mainFeatures?.storage}</span></p>
-    <p class="text-xs lg:text-xs font-semibold text-[#403F3F] mb-2"> Display Size : <span class="font-normal text-[#706F6F]">${phone?.mainFeatures?.displaySize}</span></p>
-    <p class="text-xs lg:text-xs font-semibold text-[#403F3F] mb-2"> Chipset : <span class="font-normal text-[#706F6F]">${phone?.mainFeatures?.chipSet}</span></p>
-    <p class="text-xs lg:text-xs font-semibold text-[#403F3F] mb-2"> Memory : <span class="font-normal text-[#706F6F]">${phone?.mainFeatures?.memory}</span></p>
-    <p class="text-xs lg:text-xs font-semibold text-[#403F3F] mb-2"> Slug : <span class="font-normal text-[#706F6F]">${phone?.slug}</span></p>
-    <p class="text-xs lg:text-xs font-semibold text-[#403F3F] mb-2"> Release data : <span class="font-normal text-[#706F6F]">${phone?.releaseDate}</span></p>
-    <p class="text-xs lg:text-xs font-semibold text-[#403F3F] mb-2"> Brand : <span class="font-normal text-[#706F6F]">${phone?.brand}</span></p>
-    <p class="text-xs lg:text-xs font-semibold text-[#403F3F] "> GPS : <span class="font-normal text-[#706F6F]">${phone?.others?.GPS}</span></p>
+    <p class="text-[11px] lg:text-xs font-semibold text-[#403F3F] mb-2"> Storage : <span class="font-normal text-[#706F6F]">${phone?.mainFeatures?.storage}</span></p>
+    <p class="text-[11px] lg:text-xs font-semibold text-[#403F3F] mb-2"> Display Size : <span class="font-normal text-[#706F6F]">${phone?.mainFeatures?.displaySize}</span></p>
+    <p class="text-[11px] lg:text-xs font-semibold text-[#403F3F] mb-2"> Chipset : <span class="font-normal text-[#706F6F]">${phone?.mainFeatures?.chipSet}</span></p>
+    <p class="text-[11px] lg:text-xs font-semibold text-[#403F3F] mb-2"> Memory : <span class="font-normal text-[#706F6F]">${phone?.mainFeatures?.memory}</span></p>
+    <p class="text-[11px] lg:text-xs font-semibold text-[#403F3F] mb-2"> Slug : <span class="font-normal text-[#706F6F]">${phone?.slug}</span></p>
+    <p class="text-[11px] lg:text-xs font-semibold text-[#403F3F] mb-2"> Release data : <span class="font-normal text-[#706F6F]">${phone?.releaseDate}</span></p>
+    <p class="text-[11px] lg:text-xs font-semibold text-[#403F3F] mb-2"> Brand : <span class="font-normal text-[#706F6F]">${phone?.brand}</span></p>
+    <p class="text-[11px] lg:text-xs font-semibold text-[#403F3F] "> GPS : <span class="font-normal text-[#706F6F]">${phone?.others?.GPS}</span></p>
     `;
 
 
